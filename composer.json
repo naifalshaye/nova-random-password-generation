@@ -1,0 +1,30 @@
+{
+    "name": "naif/generate-password",
+    "description": "A Laravel Nova password field with generating random password option",
+    "keywords": [
+        "laravel",
+        "nova",
+        "password"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Naif\\GeneratePassword\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Naif\\GeneratePassword\\FieldServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
