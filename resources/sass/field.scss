@@ -1,1 +1,50 @@
-// Nova Tool CSS
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 180px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size:14px;
+}
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.copyButtton {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #565656;
+  padding:5px;
+  font-size: 12px;
+  outline:none;
+}
+.copyButtton:focus {outline:none !important}
+.button:focus {outline:none !important}
+.button{
+  font-size:18px;
+  margin-left:3px;
+  cursor: pointer;
+}

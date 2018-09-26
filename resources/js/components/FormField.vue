@@ -1,14 +1,19 @@
 <template>
     <default-field :field="field">
         <template slot="field">
-            <div style="display: flex;">
+            <div style="display: flex">
                 <input :id="field.name" type="text"
-                    class="w-full form-control form-input form-input-bordered"
-                    :class="errorClasses"
-                    :placeholder="field.name"
-                    v-model="value"
-                />
-                <input type="button" class="button" value="***" v-on:click="generate();" style="font-size:20px;">
+                       class="w-full form-control form-input form-input-bordered"
+                       :class="errorClasses"
+                       :placeholder="field.name"
+                       v-model="value"/>
+                <input type="button" class="button"  value="***" v-on:click="generate();">
+                <div class="tooltip">
+                    <button type="button" class="copyButtton" v-on:click="copyPassword()">
+                        <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+                        Copy
+                    </button>
+                </div>
             </div>
             <p v-if="hasError" class="my-2 text-danger">
                 {{ firstError }}
@@ -39,7 +44,18 @@ export default {
             }
             this.value = pass;
         },
-
+        copyPassword() {
+            var copyText = document.getElementById(this.field.name);
+            var tooltip = document.getElementById("myTooltip");
+            if (copyText.value.length > 0) {
+                copyText.select();
+                document.execCommand("copy");
+                tooltip.innerHTML = "Copied";
+            }
+            else{
+                tooltip.innerHTML = "Generate a password first";
+            }
+        },
         /*
          * Set the initial, internal value for the field.
          */
