@@ -12,7 +12,12 @@ composer require naif/generate-password
 ## Usage:
 <h4>Add the below to Nova/User.php resource:</h4>
 
+
+
 ```php
+use Naif\GeneratePassword\GeneratePassword;
+
+and add in the fields
 
 GeneratePassword::make('Password')
     ->onlyOnForms()
