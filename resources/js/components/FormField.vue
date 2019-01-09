@@ -6,6 +6,7 @@
                        class="w-full form-control form-input form-input-bordered"
                        :class="errorClasses"
                        :placeholder="field.name"
+                       autocomplete="off"
                        v-model="value"/>
                 <input type="button" class="button"  value="***" v-on:click="generate();">
                 <div class="tooltip">
