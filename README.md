@@ -12,7 +12,12 @@ composer require naif/generate-password
 ## Usage:
 <h4>Add the below to Nova/User.php resource:</h4>
 
+
+
 ```php
+use Naif\GeneratePassword\GeneratePassword;
+
+and add in the fields
 
 GeneratePassword::make('Password')
     ->onlyOnForms()
@@ -22,7 +27,7 @@ GeneratePassword::make('Password')
          
 ```
 
-<img src="https://raw.githubusercontent.com/naifalshaye/nova-random-password-generation/master/screenshots/image.png" width="700">
+<img src="https://raw.githubusercontent.com/naifalshaye/nova-random-password-generation/master/screenshots/screen.gif" width="700">
 
 ## Support:
 naif@naif.io
