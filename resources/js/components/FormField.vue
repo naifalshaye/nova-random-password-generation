@@ -30,10 +30,37 @@ export default {
     mixins: [FormField, HandlesValidationErrors],
 
     props: ['resourceName', 'resourceId', 'field'],
-
     methods: {
         generate() {
-            var chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+<>ABCDEFGHIJKLMNOP1234567890";
+          var chars = '';
+            if (this.field.exclude_rules && this.field.exclude_rules.length > 0){
+              for (var j = 0; j < this.field.exclude_rules.length; j++){
+                this.field.exclude_rules[j] =  this.field.exclude_rules[j].toLowerCase();
+              }
+              if (this.field.exclude_rules.includes('symbols')
+                && this.field.exclude_rules.includes('numbers')
+                && this.field.exclude_rules.includes('uppercase')
+                && this.field.exclude_rules.includes('lowercase')){
+                alert('Include at least one characters type! Symbols, Numbers, Lowercase, Uppercase');
+                return false;
+              }
+
+              if (!this.field.exclude_rules.includes('symbols')){
+                chars += '!@#$%^&*()-+<>'
+              }
+              if (!this.field.exclude_rules.includes('numbers')){
+                chars += '1234567890'
+              }
+              if (!this.field.exclude_rules.includes('uppercase')){
+                chars += 'ABCDEFGHIJKLMNOP'
+              }
+              if (!this.field.exclude_rules.includes('lowercase')){
+                chars += 'abcdefghijklmnopqrstuvwxyz'
+              }
+            } else{
+              chars = 'abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+<>1234567890ABCDEFGHIJKLMNOP';
+            }
+
             var pass = "";
             var length = 10;
             if (this.field.length > 0){

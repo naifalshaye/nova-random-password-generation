@@ -19,4 +19,11 @@ class GeneratePassword extends Password
             'length' => $length
         ]);
     }
+
+    public function excludeRules($rules)
+    {
+        return $this->withMeta([
+            'exclude_rules' => $rules
+        ]);
+    }
 }
