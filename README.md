@@ -26,7 +26,7 @@ GeneratePassword::make('Password')
     ->length(12) //You can specifiy the password length here
     ->excludeRules(['Symbols']) //exclude characters types from password 
     //(Symbols, Numbers. Uppercase, Lowercase), do not call method to include all types
-  
+```  
     
 <img src="https://raw.githubusercontent.com/naifalshaye/nova-random-password-generation/master/screenshots/screen.gif" width="700">
 
